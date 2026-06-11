@@ -121,7 +121,6 @@
     .search-wrap button,
     .primary-link,
     .ghost-link,
-    .category-link,
     .product-link {
       min-height: 44px;
       border: 0;
@@ -249,112 +248,6 @@
       font-size: 12px;
       font-weight: 800;
       box-shadow: 0 8px 18px rgba(28, 45, 52, .07);
-    }
-
-    .hero-tools {
-      display: grid;
-      gap: 12px;
-      align-self: center;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, .96);
-      color: var(--ink);
-      box-shadow: var(--shadow);
-    }
-
-    .shortcut-section {
-      padding-top: 34px;
-      padding-bottom: 28px;
-    }
-
-    .hero-tools-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      font-weight: 800;
-    }
-
-    .hero-tools small {
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .category-link {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      min-height: 88px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 8px 18px rgba(30, 45, 52, .08);
-      text-align: left;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-
-    .category-link:hover {
-      transform: translateY(-2px);
-      border-color: rgba(47, 125, 91, .45);
-      box-shadow: var(--shadow-touch);
-    }
-
-    .category-link:active {
-      transform: translateY(0);
-      box-shadow: var(--shadow-press);
-    }
-
-    .category-icon {
-      display: grid;
-      flex: 0 0 48px;
-      width: 48px;
-      height: 48px;
-      place-items: center;
-      border-radius: var(--radius);
-      background: var(--wash);
-      color: var(--green-dark);
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .category-copy {
-      display: grid;
-      flex: 1;
-      min-width: 0;
-      gap: 3px;
-    }
-
-    .category-link strong {
-      font-size: 16px;
-      line-height: 1.2;
-    }
-
-    .category-copy > span {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .category-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-      min-width: 46px;
-      min-height: 34px;
-      border-radius: 999px;
-      background: #eef6f2;
-      color: var(--green-dark);
-      font-size: 12px;
-      font-weight: 900;
     }
 
     .primary-link,
@@ -858,11 +751,6 @@
         font-size: 15px;
       }
 
-      .hero-tools {
-        padding: 16px;
-      }
-
-      .quick-grid,
       .school-list,
       .feature-grid,
       .product-grid,
@@ -941,23 +829,6 @@
             <li>店舗相談も可能</li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <section class="section shortcut-section" aria-label="カテゴリショートカット">
-      <div class="hero-tools">
-          <div class="hero-tools-title">
-            <span>学校区分から探す</span>
-            <small>現在の商品カテゴリを活用</small>
-          </div>
-          <div class="quick-grid">
-            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002912"><span class="category-icon">園</span><span class="category-copy"><strong>幼稚園・こども園</strong><span>8園</span></span><span class="category-cta">見る</span></a>
-            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002913"><span class="category-icon">小</span><span class="category-copy"><strong>小学校</strong><span>41校</span></span><span class="category-cta">見る</span></a>
-            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002914"><span class="category-icon">中</span><span class="category-copy"><strong>中学校</strong><span>19校</span></span><span class="category-cta">見る</span></a>
-            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002915"><span class="category-icon">高</span><span class="category-copy"><strong>高校</strong><span>指定校用品</span></span><span class="category-cta">見る</span></a>
-            <a class="category-link" href="https://yuukichiya.base.shop/categories/5004492"><span class="category-icon">泳</span><span class="category-copy"><strong>水着用品</strong><span>季節用品</span></span><span class="category-cta">見る</span></a>
-            <a class="category-link" href="https://yuukichiya.base.shop/categories/5004495"><span class="category-icon">得</span><span class="category-copy"><strong>プライスダウン</strong><span>お得な商品</span></span><span class="category-cta">見る</span></a>
-          </div>
       </div>
     </section>
 
