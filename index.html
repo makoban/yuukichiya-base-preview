@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>勇吉屋ネット BASE リニューアル案</title>
+  <style>
+    :root {
+      --ink: #222426;
+      --muted: #68727d;
+      --line: #dde4e8;
+      --paper: #ffffff;
+      --wash: #f4f7f5;
+      --green: #2f7d5b;
+      --green-dark: #1f553f;
+      --red: #d9503f;
+      --blue: #3579a8;
+      --gold: #b9842b;
+      --radius: 8px;
+      --shadow: 0 18px 45px rgba(20, 38, 48, .12);
+      --shadow-touch: 0 10px 24px rgba(23, 45, 52, .14);
+      --shadow-press: 0 5px 12px rgba(23, 45, 52, .16);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #fbfcfb;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid rgba(221, 228, 232, .88);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto minmax(260px, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      max-width: 1240px;
+      min-height: 76px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 168px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 2px solid var(--green);
+      color: var(--green-dark);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .search-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f8faf9;
+      box-shadow: 0 8px 20px rgba(26, 45, 52, .06);
+      overflow: hidden;
+    }
+
+    .search-wrap input {
+      min-width: 0;
+      height: 46px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      padding: 0 16px;
+      font: inherit;
+    }
+
+    .search-wrap button,
+    .primary-link,
+    .ghost-link,
+    .category-link,
+    .product-link {
+      min-height: 44px;
+      border: 0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .search-wrap button {
+      height: 46px;
+      padding: 0 18px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .header-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 12px;
+      border-radius: var(--radius);
+    }
+
+    .header-actions a:last-child {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: var(--shadow-press);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(251, 252, 249, .99) 0%, rgba(251, 252, 249, .94) 34%, rgba(251, 252, 249, .42) 55%, rgba(251, 252, 249, .06) 74%),
+        url("assets/hero-uniform-display.png") center right / cover no-repeat;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      max-width: 1240px;
+      min-height: 620px;
+      margin: 0 auto;
+      padding: 86px 28px 68px;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      display: block;
+      width: 36px;
+      height: 2px;
+      background: var(--red);
+      content: "";
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 680px;
+      font-size: clamp(38px, 5.2vw, 64px);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .hero-lead {
+      max-width: 560px;
+      margin: 22px 0 0;
+      color: #4f5b63;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .hero-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-note li {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(47, 125, 91, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .76);
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(28, 45, 52, .07);
+    }
+
+    .hero-tools {
+      display: grid;
+      gap: 12px;
+      align-self: center;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .96);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .shortcut-section {
+      padding-top: 34px;
+      padding-bottom: 28px;
+    }
+
+    .hero-tools-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 800;
+    }
+
+    .hero-tools small {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .category-link {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 88px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(30, 45, 52, .08);
+      text-align: left;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .category-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(47, 125, 91, .45);
+      box-shadow: var(--shadow-touch);
+    }
+
+    .category-link:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-press);
+    }
+
+    .category-icon {
+      display: grid;
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--wash);
+      color: var(--green-dark);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .category-copy {
+      display: grid;
+      flex: 1;
+      min-width: 0;
+      gap: 3px;
+    }
+
+    .category-link strong {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .category-copy > span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .category-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-width: 46px;
+      min-height: 34px;
+      border-radius: 999px;
+      background: #eef6f2;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .primary-link,
+    .ghost-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: max-content;
+      border-radius: var(--radius);
+      padding: 0 18px;
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .primary-link {
+      background: var(--green);
+      color: #fff;
+      box-shadow: var(--shadow-press);
+    }
+
+    .ghost-link {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .primary-link:hover,
+    .ghost-link:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-touch);
+    }
+
+    .section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 72px 28px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-lead {
+      max-width: 560px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .category-panel {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--wash);
+      box-shadow: 0 16px 36px rgba(29, 49, 55, .09);
+    }
+
+    .category-tabs {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .tab-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      min-height: 64px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .tab-button:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-press);
+    }
+
+    .tab-button[data-active="true"] {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+      box-shadow: var(--shadow-touch);
+    }
+
+    .school-list {
+      display: none;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .school-list[data-active="true"] {
+      display: grid;
+    }
+
+    .school-list a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 58px;
+      padding: 12px 42px 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 6px 14px rgba(28, 45, 52, .06);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .school-list a::after {
+      position: absolute;
+      right: 14px;
+      color: var(--green);
+      font-size: 18px;
+      font-weight: 900;
+      content: ">";
+    }
+
+    .school-list a:hover,
+    .product-card:hover .product-link {
+      color: var(--green-dark);
+      border-color: rgba(47, 125, 91, .42);
+      box-shadow: var(--shadow-touch);
+      transform: translateY(-1px);
+    }
+
+    .feature-band {
+      background: #f2f6f7;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature {
+      min-height: 150px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(28, 45, 52, .08);
+    }
+
+    .feature b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-width: 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 24px rgba(27, 43, 49, .08);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(47, 125, 91, .4);
+      box-shadow: var(--shadow-touch);
+    }
+
+    .product-photo {
+      display: grid;
+      align-items: center;
+      aspect-ratio: 1 / 1.08;
+      overflow: hidden;
+      border: 0;
+      background: #f7f8f8;
+    }
+
+    .product-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .24s ease;
+    }
+
+    .product-card:hover .product-photo img {
+      transform: scale(1.035);
+    }
+
+    .product-body {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    .product-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .product-title {
+      min-height: 3.4em;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .product-bottom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .price {
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .sale {
+      color: var(--red);
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-width: 0;
+      height: 44px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: var(--shadow-press);
+    }
+
+    .pickup {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: stretch;
+      gap: 0;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .pickup-copy {
+      padding: 44px;
+    }
+
+    .pickup-copy h2 {
+      margin: 0 0 14px;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1.16;
+    }
+
+    .pickup-copy p {
+      max-width: 560px;
+      margin: 0 0 24px;
+      color: rgba(255, 255, 255, .82);
+      font-weight: 600;
+    }
+
+    .pickup-image {
+      min-height: 380px;
+      background:
+        linear-gradient(90deg, rgba(34, 36, 38, .35), rgba(34, 36, 38, 0)),
+        url("https://image.jimcdn.com/app/cms/image/transf/dimension=666x10000:format=jpg/path/s61bce0705a12eb97/image/i0f372e6fe4e051a8/version/1746521603/image.jpg") center / cover no-repeat;
+    }
+
+    .guide-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .guide {
+      display: grid;
+      gap: 8px;
+      padding: 20px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--green);
+      background: #f7faf9;
+      box-shadow: 0 8px 18px rgba(29, 49, 55, .06);
+    }
+
+    .guide:nth-child(2) {
+      border-color: var(--blue);
+    }
+
+    .guide:nth-child(3) {
+      border-color: var(--gold);
+    }
+
+    .guide b {
+      font-size: 18px;
+    }
+
+    .guide p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .site-footer {
+      background: #1f2527;
+      color: #fff;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr .9fr;
+      gap: 42px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 48px 28px;
+    }
+
+    .footer-inner h2,
+    .footer-inner h3 {
+      margin: 0 0 12px;
+      line-height: 1.25;
+    }
+
+    .footer-inner p,
+    .footer-inner li {
+      color: rgba(255, 255, 255, .72);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer-inner ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      padding: 18px 28px;
+      color: rgba(255, 255, 255, .62);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .header-inner {
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+      }
+
+      .search-wrap {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        margin-bottom: 14px;
+      }
+
+      .pickup {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding-top: 58px;
+      }
+
+      .category-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .category-tabs {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        border-right: 0;
+      }
+
+      .tab-button {
+        justify-content: center;
+        min-height: 54px;
+        padding: 0 10px;
+        font-size: 14px;
+      }
+
+      .tab-button span {
+        display: none;
+      }
+
+      .school-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .header-inner,
+      .section,
+      .hero-inner,
+      .footer-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .header-inner {
+        min-height: 66px;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+      }
+
+      .brand-name {
+        font-size: 17px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .header-actions {
+        gap: 8px;
+        font-size: 12px;
+      }
+
+      .header-actions a:first-child {
+        display: none;
+      }
+
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(251, 252, 249, .98) 0%, rgba(251, 252, 249, .92) 42%, rgba(251, 252, 249, .25) 72%),
+          url("assets/hero-uniform-display.png") center bottom / cover no-repeat;
+      }
+
+      .hero-inner {
+        gap: 28px;
+        min-height: 590px;
+        padding-top: 42px;
+        padding-bottom: 260px;
+      }
+
+      .hero h1 {
+        font-size: 37px;
+      }
+
+      .hero-lead {
+        font-size: 15px;
+      }
+
+      .hero-tools {
+        padding: 16px;
+      }
+
+      .quick-grid,
+      .school-list,
+      .feature-grid,
+      .product-grid,
+      .guide-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .category-tabs {
+        display: flex;
+        overflow-x: auto;
+      }
+
+      .tab-button {
+        min-width: 116px;
+      }
+
+      .section {
+        padding-top: 54px;
+        padding-bottom: 54px;
+      }
+
+      .section-head {
+        display: grid;
+      }
+
+      .product-title {
+        min-height: auto;
+      }
+
+      .pickup-copy {
+        padding: 30px 22px;
+      }
+
+      .pickup-image {
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="https://yuukichiya.base.shop/">
+        <span class="brand-mark">勇吉</span>
+        <span>
+          <span class="brand-name">勇吉屋ネット</span>
+          <span class="brand-sub">学生衣料・通学用品</span>
+        </span>
+      </a>
+      <form class="search-wrap" action="https://yuukichiya.base.shop/search" method="get">
+        <input type="search" name="q" placeholder="学校名・商品名で探す">
+        <button type="submit">検索</button>
+      </form>
+      <nav class="header-actions" aria-label="ショップ情報">
+        <a href="https://yuukichiya.base.shop/about">ご利用案内</a>
+        <a href="https://thebase.in/inquiry/yuukichiya-base-shop">お問い合わせ</a>
+        <a href="https://c.thebase.in/order/cart/yuukichiya">カート</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">TOYOTA SCHOOL WEAR STORE</p>
+          <h1>学生服・通学用品を学校名で探す。</h1>
+          <p class="hero-lead">制服・体操服・バッグ・シューズまで、店頭で選ぶような安心感をECでも。学校別に必要な商品へすぐ進めるTOPデザインです。</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#schools">学校名で探す</a>
+            <a class="ghost-link" href="https://yuukichiya.base.shop/categories/5004492">季節用品を見る</a>
+          </div>
+          <ul class="hero-note">
+            <li>豊田市の学生衣料専門店</li>
+            <li>制服・体操服・通学用品</li>
+            <li>店舗相談も可能</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shortcut-section" aria-label="カテゴリショートカット">
+      <div class="hero-tools">
+          <div class="hero-tools-title">
+            <span>学校区分から探す</span>
+            <small>現在の商品カテゴリを活用</small>
+          </div>
+          <div class="quick-grid">
+            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002912"><span class="category-icon">園</span><span class="category-copy"><strong>幼稚園・こども園</strong><span>8園</span></span><span class="category-cta">見る</span></a>
+            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002913"><span class="category-icon">小</span><span class="category-copy"><strong>小学校</strong><span>41校</span></span><span class="category-cta">見る</span></a>
+            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002914"><span class="category-icon">中</span><span class="category-copy"><strong>中学校</strong><span>19校</span></span><span class="category-cta">見る</span></a>
+            <a class="category-link" href="https://yuukichiya.base.shop/categories/5002915"><span class="category-icon">高</span><span class="category-copy"><strong>高校</strong><span>指定校用品</span></span><span class="category-cta">見る</span></a>
+            <a class="category-link" href="https://yuukichiya.base.shop/categories/5004492"><span class="category-icon">泳</span><span class="category-copy"><strong>水着用品</strong><span>季節用品</span></span><span class="category-cta">見る</span></a>
+            <a class="category-link" href="https://yuukichiya.base.shop/categories/5004495"><span class="category-icon">得</span><span class="category-copy"><strong>プライスダウン</strong><span>お得な商品</span></span><span class="category-cta">見る</span></a>
+          </div>
+      </div>
+    </section>
+
+    <section class="section" id="schools">
+      <div class="section-head">
+        <div>
+          <h2>学校名で探す</h2>
+          <p class="section-lead">カテゴリが多いショップなので、左の区分を切り替えて学校名を一覧できる構成にします。</p>
+        </div>
+        <a class="ghost-link" href="https://yuukichiya.base.shop/categories/5002913">すべての商品を見る</a>
+      </div>
+      <div class="category-panel">
+        <div class="category-tabs" role="tablist" aria-label="学校カテゴリ">
+          <button class="tab-button" type="button" data-target="kindergarten" data-active="true">園 <span>8</span></button>
+          <button class="tab-button" type="button" data-target="elementary">小学校 <span>41</span></button>
+          <button class="tab-button" type="button" data-target="junior">中学校 <span>19</span></button>
+          <button class="tab-button" type="button" data-target="high">高校 <span>8</span></button>
+          <button class="tab-button" type="button" data-target="other">その他 <span>用品</span></button>
+        </div>
+        <div>
+          <div class="school-list" id="kindergarten" data-active="true">
+            <a href="https://yuukichiya.base.shop/categories/5002916">青木幼稚園</a>
+            <a href="https://yuukichiya.base.shop/categories/5002917">上鷹見こども園</a>
+            <a href="https://yuukichiya.base.shop/categories/5002918">浄光こども園</a>
+            <a href="https://yuukichiya.base.shop/categories/5002919">根川こども園</a>
+            <a href="https://yuukichiya.base.shop/categories/5002920">野見こども園</a>
+            <a href="https://yuukichiya.base.shop/categories/5002921">杜のひかりこども園</a>
+            <a href="https://yuukichiya.base.shop/categories/5002922">宮口こども園</a>
+            <a href="https://yuukichiya.base.shop/categories/5002923">みよし保育園</a>
+          </div>
+          <div class="school-list" id="elementary">
+            <a href="https://yuukichiya.base.shop/categories/5002924">青木小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002925">朝日小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002926">市木小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002927">五ケ丘小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002928">五ケ丘東小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002929">井上小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002930">伊保小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002931">梅坪小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002932">大畑小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002933">大林小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002934">加納小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002935">上鷹見小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002936">幸海小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002937">小清水小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002938">古瀬間小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002939">挙母小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002940">衣丘小学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002941">佐切小学校</a>
+          </div>
+          <div class="school-list" id="junior">
+            <a href="https://yuukichiya.base.shop/categories/5002966">逢妻中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002967">朝日丘中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002968">井郷中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002969">石野中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002970">梅坪台中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002971">上郷中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002972">猿投中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002973">猿投台中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002974">浄水中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002975">末野原中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002976">崇化館中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002977">高橋中学校</a>
+          </div>
+          <div class="school-list" id="high">
+            <a href="https://yuukichiya.base.shop/categories/5002985">衣台高校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002986">豊田大谷高校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002987">豊田東高校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002988">自転車通学用品</a>
+            <a href="https://yuukichiya.base.shop/categories/5002989">豊田工科高校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002990">豊田北高校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002991">豊田西高等学校・附属中学校</a>
+            <a href="https://yuukichiya.base.shop/categories/5002992">豊田高校</a>
+          </div>
+          <div class="school-list" id="other">
+            <a href="https://yuukichiya.base.shop/categories/5004488">給食セット</a>
+            <a href="https://yuukichiya.base.shop/categories/5004489">靴下</a>
+            <a href="https://yuukichiya.base.shop/categories/5004490">サニタリースパッツ</a>
+            <a href="https://yuukichiya.base.shop/categories/5004491">シューズ袋</a>
+            <a href="https://yuukichiya.base.shop/categories/5004492">水着用品</a>
+            <a href="https://yuukichiya.base.shop/categories/5004495">プライスダウン</a>
+            <a href="https://yuukichiya.base.shop/categories/5004496">通学専用バッグ</a>
+            <a href="https://yuukichiya.base.shop/categories/5004498">自転車用ヘルメット</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="feature-band">
+      <section class="section">
+        <div class="feature-grid">
+          <div class="feature"><b>学校指定品に対応</b><p>現在のBASEカテゴリを活かし、学校別に商品へ進める構成にします。</p></div>
+          <div class="feature"><b>店舗受け取り導線</b><p>サイズ確認や交換が必要な商材でも、店頭とのつながりを残します。</p></div>
+          <div class="feature"><b>季節用品を強調</b><p>水着用品、赤白帽子など、時期に合わせたカテゴリを上部に配置します。</p></div>
+          <div class="feature"><b>スマホ優先</b><p>親御さんがLINEや検索から来ても、学校名検索とカテゴリがすぐ見えます。</p></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>NEW ARRIVAL</h2>
+          <p class="section-lead">現在販売されているBASE商品を使った商品カード例です。</p>
+        </div>
+        <a class="primary-link" href="https://yuukichiya.base.shop/">商品一覧へ</a>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/items/137799376"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/6ba4e8851d064705fde61bb92124e7b1.jpg?imformat=generic" alt="遮熱赤白帽子 M/L"></a>
+          <div class="product-body"><div class="product-meta">帽子</div><div class="product-title">遮熱赤白帽子 M/L</div><div class="product-bottom"><span class="price">¥980</span><a class="product-link" href="https://yuukichiya.base.shop/items/137799376">商品を見る</a></div></div>
+        </article>
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/items/137799545"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/6ba4e8851d064705fde61bb92124e7b1.jpg?imformat=generic" alt="遮熱赤白帽子 LL"></a>
+          <div class="product-body"><div class="product-meta">帽子</div><div class="product-title">遮熱赤白帽子 LL</div><div class="product-bottom"><span class="price">¥1,030</span><a class="product-link" href="https://yuukichiya.base.shop/items/137799545">商品を見る</a></div></div>
+        </article>
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/items/72180512"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/bb864bba8028f4ebd2f2cb1191c64d06.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="女子水着 スカート付きワンピース"></a>
+          <div class="product-body"><div class="product-meta">水着用品</div><div class="product-title">女子水着 スカート付きワンピース</div><div class="product-bottom"><span class="price">¥3,300</span><a class="product-link" href="https://yuukichiya.base.shop/items/72180512">商品を見る</a></div></div>
+        </article>
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/items/72149326"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/c77d7186e1c2a554629952de8979ad02.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="井郷中学校 Vネック半袖シャツ"></a>
+          <div class="product-body"><div class="product-meta">中学校</div><div class="product-title">井郷中学校 Vネック半袖シャツ</div><div class="product-bottom"><span class="price">¥2,800</span><a class="product-link" href="https://yuukichiya.base.shop/items/72149326">商品を見る</a></div></div>
+        </article>
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/items/80801317"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=206x10000:format=jpg/path/s61bce0705a12eb97/image/i29117cd275176076/version/1746519341/image.jpg" alt="末野原中学校 旧タイプ 女子半袖体操服"></a>
+          <div class="product-body"><div class="product-meta">中学校</div><div class="product-title">末野原中 旧タイプ 女子半袖体操服 サイズ165</div><div class="product-bottom"><span class="price">¥1,100</span><a class="product-link" href="https://yuukichiya.base.shop/items/80801317">商品を見る</a></div></div>
+        </article>
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/items/88864427"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/f4e637b42af062bc7c445bdc8a489c36.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="末野原中学校 旧タイプ 男子 半袖体操服"></a>
+          <div class="product-body"><div class="product-meta">中学校</div><div class="product-title">末野原中学校 旧タイプ 男子 半袖体操服</div><div class="product-bottom"><span class="price">¥1,100</span><a class="product-link" href="https://yuukichiya.base.shop/items/88864427">商品を見る</a></div></div>
+        </article>
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/items/145086937"><img src="https://baseec-img-mng.akamaized.net/images/item/origin/e1da3f7f34aa07c233db1c70d0457b97.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="衣台高校 旧タイプ長袖オーバーブラウス"></a>
+          <div class="product-body"><div class="product-meta sale">50%OFF</div><div class="product-title">衣台高校 旧タイプ長袖オーバーブラウス</div><div class="product-bottom"><span class="price sale">¥4,150</span><a class="product-link" href="https://yuukichiya.base.shop/items/145086937">商品を見る</a></div></div>
+        </article>
+        <article class="product-card">
+          <a class="product-photo" href="https://yuukichiya.base.shop/"><img src="https://image.jimcdn.com/app/cms/image/transf/dimension=321x10000:format=png/path/s61bce0705a12eb97/image/i57217246c4758352/version/1746527441/image.png" alt="衣台高校 旧タイプ ダブルプリーツ夏スカート"></a>
+          <div class="product-body"><div class="product-meta sale">50%OFF</div><div class="product-title">衣台高校 旧タイプ ダブルプリーツ夏スカート</div><div class="product-bottom"><span class="price sale">¥7,500</span><a class="product-link" href="https://yuukichiya.base.shop/">商品を見る</a></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="pickup">
+      <div class="pickup-copy">
+        <h2>サイズ選びに迷う商品は、店舗相談へつなげる。</h2>
+        <p>制服・体操服はサイズと学校指定の確認が大切です。ECは買いやすく、必要な場面では本店・高橋店の相談導線を自然に出します。</p>
+        <a class="primary-link" href="https://www.yuukichi-ya.com/%E5%BA%97%E8%88%97%E6%83%85%E5%A0%B1/">店舗情報を見る</a>
+      </div>
+      <div class="pickup-image" role="img" aria-label="学生服商品イメージ"></div>
+    </section>
+
+    <section class="section">
+      <div class="guide-strip">
+        <div class="guide"><b>5,000円以上で送料無料</b><p>キャンペーンやクーポン情報はトップ上部に短く掲出します。</p></div>
+        <div class="guide"><b>返品・交換条件を明確に</b><p>白色商品やタグ付き条件など、購入前の不安を減らします。</p></div>
+        <div class="guide"><b>LINE導線と相性良く</b><p>会員・ポイント・採寸予約からECへ来た時も学校検索がすぐ使えます。</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>勇吉屋ネット</h2>
+        <p>豊田市で創業78年の学生衣料品販売専門店。良いものを永く着る、という買い方を支えるECサイトへ。</p>
+      </div>
+      <div>
+        <h3>SHOP INFO</h3>
+        <ul>
+          <li><a href="https://yuukichiya.base.shop/about">ABOUT</a></li>
+          <li><a href="https://thebase.in/inquiry/yuukichiya-base-shop">CONTACT</a></li>
+          <li><a href="https://yuukichiya.base.shop/law">特定商取引法に基づく表記</a></li>
+          <li><a href="https://yuukichiya.base.shop/privacy">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>PAYMENT</h3>
+        <ul>
+          <li>クレジットカード</li>
+          <li>PayPay</li>
+          <li>キャリア決済</li>
+          <li>銀行振込・コンビニ決済</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 勇吉屋ネット</div>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const lists = document.querySelectorAll(".school-list");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((item) => item.dataset.active = "false");
+        lists.forEach((item) => item.dataset.active = "false");
+        button.dataset.active = "true";
+        document.getElementById(button.dataset.target).dataset.active = "true";
+      });
+    });
+  </script>
+</body>
+</html>
