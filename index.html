@@ -83,6 +83,17 @@
       line-height: 1;
     }
 
+    .brand-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-mark:focus-visible,
+    .brand-copy:focus-visible {
+      outline: 3px solid rgba(47, 125, 91, .28);
+      outline-offset: 3px;
+    }
+
     .brand-name {
       font-size: 20px;
       font-weight: 800;
@@ -793,13 +804,13 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="https://yuukichiya.base.shop/">
-        <span class="brand-mark">勇吉</span>
-        <span>
+      <div class="brand" aria-label="勇吉屋ネット">
+        <a class="brand-mark" href="https://makoban.github.io/yuukichiya-hp-preview/?v=intro-fix-b76a2ff" aria-label="勇吉屋公式ページへ">勇吉</a>
+        <a class="brand-copy" href="https://yuukichiya.base.shop/" aria-label="勇吉屋ネットのトップへ">
           <span class="brand-name">勇吉屋ネット</span>
           <span class="brand-sub">学生衣料・通学用品</span>
-        </span>
-      </a>
+        </a>
+      </div>
       <form class="search-wrap" action="https://yuukichiya.base.shop/search" method="get">
         <input type="search" name="q" placeholder="学校名・商品名で探す">
         <button type="submit">検索</button>
